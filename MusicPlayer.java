@@ -7,7 +7,7 @@ import javazoom.jl.player.AudioDevice;
 import javazoom.jl.player.FactoryRegistry;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 import java.util.Random;
-
+import java.util.ArrayList;
 
 /**
  * Provide basic playing of MP3 files via the javazoom library.
@@ -82,12 +82,12 @@ public class MusicPlayer
     {
         Random rand = new Random();
         int size;
-        ArrayList<Track> leftToPlay = new ArrayList<Track>(tracks);
+        ArrayList<Track> leftToPlay = new ArrayList<Track>();
         while(leftToPlay.size() > 0)
         {
             size = rand.nextInt(leftToPlay.size());
             Track playing = leftToPlay.remove(size);
-            player.startPlaying(track.getFilename());
+            player.playSample(playing.getFilename());
         }
     }
     
